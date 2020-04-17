@@ -6,101 +6,101 @@
 =========================================================================================
 
 # 2. 使用直线划分空间
-#include<stdio.h>
+    #include<stdio.h>
 
-#include<stdlib.h>
+    #include<stdlib.h>
 
-int main(void) {
+    int main(void) {
 
-int calc_spaces(int n); // n >= 0
+    int calc_spaces(int n); // n >= 0
 
-    int s;
+        int s;
 
-    int n;
+        int n;
 
-    scanf("%d输入线条数\n",&n);
+        scanf("%d输入线条数\n",&n);
 
-    s = n * (n + 1) / 2 + 1;
+        s = n * (n + 1) / 2 + 1;
 
-        printf("能分割%d个空间\n",s);
+            printf("能分割%d个空间\n",s);
 
-        return 0;
-    }
+            return 0;
+        }
 
 ==========================================================================================
 
 # 3.打印数字金字塔
 
-#include<stdio.h>
-void main()
+    #include<stdio.h>
+    void main()
 
-{ int i,j,n=0,a[17][17]={0};
-    
-   while(n<1 || n>16)
-       
-   { printf("请输入行数:");
-       
-     scanf("%d",&n);
-   }
-   for(i = 0;i < n;i++)
-       
-     a[i][0] = a[i][i] = i + 1;
-    
-    for(i = 2;i < n;i++)
+    { int i,j,n=0,a[17][17]={0};
         
-     for(j = 1;j <= i;j++)
-         
-       a[i][j] = a[i-1][j-1] + a[i-1][j];
-    
-   for(i = 0;i < n;i++)
-       
-   { for(j = 0;j <= i;j++)
-       
-       printf("%5d",a[i][j]);
-       
-     printf("\n");
-   }
-}
+    while(n<1 || n>16)
+        
+    { printf("请输入行数:");
+        
+        scanf("%d",&n);
+    }
+    for(i = 0;i < n;i++)
+        
+        a[i][0] = a[i][i] = i + 1;
+        
+        for(i = 2;i < n;i++)
+            
+        for(j = 1;j <= i;j++)
+            
+        a[i][j] = a[i-1][j-1] + a[i-1][j];
+        
+    for(i = 0;i < n;i++)
+        
+    { for(j = 0;j <= i;j++)
+        
+        printf("%5d",a[i][j]);
+        
+        printf("\n");
+    }
+    }
 ============================================================================================
-# 4.atof函数的实现
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
+    # 4.atof函数的实现
+    #include <stdio.h>
+    #include <ctype.h>
+    #include <stdlib.h>
 
-double my_atof(char *nptr);
-{
-    double  res_i = 0;
-    double  res_d = 1;
-    const char    *p = nptr;
+    double my_atof(char *nptr);
+    {
+        double  res_i = 0;
+        double  res_d = 1;
+        const char    *p = nptr;
 
-    while ( isdigit (*p) ) {
+        while ( isdigit (*p) ) {
 
-        res_i = res_i * 10 + (*p++ - '0');
-    }
-
-
-    if ( '.' == *p++ ) {
-
-        while ( isdigit (*p) ) {
-            
-            res_i += (res_d /= 10) * (*p++ - '0');
-        }
-    }
-
-    return res_i;
-}
+            res_i = res_i * 10 + (*p++ - '0');
+        }
 
 
-int main (void)
-{
-    char  *str = "1234";
+        if ( '.' == *p++ ) {
+
+            while ( isdigit (*p) ) {
+                
+                res_i += (res_d /= 10) * (*p++ - '0');
+            }
+        }
+
+        return res_i;
+    }
 
 
-    printf ("myAtof: %f\n", my_atof (str));
-    printf ("atof  : %f\n", atof (str));
-    return 0;
+    int main (void)
+    {
+        char  *str = "1234";
 
-}
+
+        printf ("myAtof: %f\n", my_atof (str));
+        printf ("atof  : %f\n", atof (str));
+        return 0;
+
+    }
 # 5.使用栈的数据结构实现队列的功能
 思路：创建一个push栈，一个pop栈，将{1,2,3,4,5}入栈到push栈，再将push栈中的元素出栈再入栈到pop栈，
 由于栈的元素出栈遵循先入后出所以当元素从pop栈出栈时打印的数字依然是{1,2,3,4,5},相当于模拟了队列的先入先出。
